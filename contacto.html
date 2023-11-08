@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+    <a href="index.html">Volver a la página principal</a>
+    <div class="contact-container"></div>
+    <h1>Contacto</h1>
+    <p>¿Tienes alguna pregunta o comentario? ¡Contáctanos!</p>
+        <form id="contact-form">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div>
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contact-form');
+            const resultDiv = document.getElementById('result');
+
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const nombre = contactForm.querySelector('#nombre').value;
+                const email = contactForm.querySelector('#email').value;
+                const mensaje = contactForm.querySelector('#mensaje').value;
+
+                // Validación de correo electrónico usando una expresión regular
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                const isEmailValid = emailRegex.test(email);
+
+                // Validación de longitud máxima para el mensaje
+                const maxMessageLength = 200;
+                const isMessageValid = mensaje.length <= maxMessageLength;
+
+                if (nombre && isEmailValid && isMessageValid) {
+                    // Datos válidos, mostrar en el resultado
+                    const resultHTML = `
+                        <p><strong>Nombre:</strong> ${nombre}</p>
+                        <p><strong>Correo Electrónico:</strong> ${email}</p>
+                        <p><strong>Mensaje:</strong> ${mensaje}</p>
+                    `;
+                    resultDiv.innerHTML = resultHTML;
+                } else {
+                    // Mostrar mensajes de error
+                    let errorsHTML = '<ul>';
+
+                    if (!nombre) {
+                        errorsHTML += '<li>El campo Nombre es obligatorio.</li>';
+                    }
+
+                    if (!isEmailValid) {
+                        errorsHTML += '<li>El campo Correo Electrónico no es válido.</li>';
+                    }
+
+                    if (!isMessageValid) {
+                        errorsHTML += `<li>El campo Mensaje debe tener ${maxMessageLength} caracteres como máximo.</li>`;
+                    }
+
+                    errorsHTML += '</ul>';
+                    resultDiv.innerHTML = `<div class="error">${errorsHTML}</div>`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

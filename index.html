@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Voleibol</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        /* Estilos CSS para el menú de navegación */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #555;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="reglas.html">Reglas</a></li>
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="equipos.html">Equipos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+    
+    
+    <h1>Bienvenido a la Página de Voleibol</h1>
+    <p>Esta es la página principal sobre voleibol, donde encontrarás información sobre este emocionante deporte.</p>
+
+    <div class="carousel">
+        <button id="prevBtn" class="carousel-button">&lt;</button>
+        <img id="carouselImage" src="imagen1.png" alt="Imagen del carrusel">
+        <button id="nextBtn" class="carousel-button">&gt;</button>
+    </div>
+
+    <script>
+        // Coloca aquí el código JavaScript del carrusel
+        const images = ["imagen1.png", "imagen2.png", "imagen3.png"];
+        const carouselImage = document.getElementById("carouselImage");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+    
+        let currentIndex = 0;
+    
+        function updateImage() {
+            carouselImage.src = images[currentIndex];
+        }
+    
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+    
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+    
+        prevBtn.addEventListener("click", prevImage);
+        nextBtn.addEventListener("click", nextImage);
+    
+        // Inicializa la imagen actual
+        updateImage();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,116 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Estilo del formulario */
+form {
+    margin: 20px 0;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #007BFF;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo del resultado o mensajes de error */
+#error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Estilos CSS para el carrusel */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px; 
+}
+
+.carousel img {
+    width: 80%; 
+    max-height: 400px; 
+}
+
+.carousel-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#prevBtn {
+    margin-right: 10px; 
+}
+
+#nextBtn {
+    margin-left: 10px; 
+}
+
+/* Estilos CSS para la página de contacto */
+.contact-container {
+    max-width: 600px; 
+    margin: 0 auto;
+    padding: 20px; 
+    text-align: center;
+}
